@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import "./rest";
+
+* {
+  font-family: 'Rubik', sans-serif;;
+}
+
+body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  @include flexbox(row, start, 60%, 600px);
+  position: static;
+  left: 50%;
+  transform: translate(30%, 35%);
+}
+
+.phone {
+  @include flexbox(column, center, 25%, 100%);
+  @include styles(40px, 40px, 40px, 40px, hsl(0, 0%, 100%), 300px, 600px);
+  box-shadow: 5px 4px 4px rgba($color: black, $alpha: 0.1),
+              5px 6px 6px rgba($color: black, $alpha: 0.006),
+              5px 8px 8px rgba($color: black, $alpha: 0.003),
+              5px 10px 10px rgba($color: black, $alpha: 0.001);
+  margin-left: 150px;
+  max-width: 300px;
+  max-height: 500px;
+
+  & .phone-screen {
+    @include flexbox(column, center, 90%, 95%);
+    @include styles(30px, 30px, 30px, 30px, hsl(270, 20%, 96%), 250px, 550px);
+
+    .app-header {
+      @include flexbox(row, start, 100%, 15%);
+      @include styles(30px, 30px, 10px, 10px, white, 250px, 80px);
+      margin-top: -24px;
+      background: linear-gradient(90deg, hsl(264, 100%, 61%),  hsl(293, 100%, 63%));
+      position: relative;
+      overflow: visible;
+      margin-top: 0;
+    }
+
+    .app-header::before {
+      content: '';
+      @include styles(0, 0, 15px, 15px, white, 50%, 21px);
+      position: absolute;
+      top: -1px;
+      left: 25%;
+    }
+
+    .app-header .arrow {
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      padding: 3px;
+      transform: rotate(135deg);
+      position: absolute;
+      bottom: 25px;
+      left: 20px;
+    }
+
+    .app-header img {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin-left: 35px;
+      margin-top: 27px;
+      padding: 1px;
+      background-color: white;
+    }
+    
+    .walker-info {
+      @include flexbox(column, start, 100px, 40px);
+      margin-left: 5px;
+      margin-top: 5px;
+
+      .name {
+        @include textStyle(14px, hsl(0, 0%, 100%), 500);
+      }
+
+      .status {
+        margin-top: -10px;
+        @include textStyle(12px, hsl(276, 100%, 81%), 400);
+      }
+    }
+
+    .three-dots {
+      @include flexbox(column, center, 20px, 40px);
+      margin-top: 25px;
+      margin-left: 70px;
+      gap: 2px;
+
+      div {
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background-color: white;
+      }
+    }
+    
+    & .app-messages {
+      @include flexbox(column, start, 0, 80%);
+      width: calc(100% - 20px);
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+
+      .left-message {
+        @include flexbox(row, start, 150px, 40px);
+        @include styles(12px, 12px, 12px, 5px, hsla(276, 88%, 84%, 0.288), 140px, 40px);
+        padding: 0 10px;
+        @include textStyle(11px, hsl(276, 55%, 52%), 500);
+        
+      }
+
+      .messages-right {
+        @include flexbox(column, start, 100%, 120px);
+        margin-top: 10px;
+        align-items: flex-end;
+        gap: 10px;
+
+        .picture-grid {
+          display: grid;
+          grid-template-columns: 40px 40px 40px;
+          gap: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+          }
+        }
+        .right-message {
+          @include flexbox(row, start, 150px, 40px);
+          @include styles(12px, 12px, 5px, 12px, white, 150px, 40px);
+          padding: 0 10px;
+          @include textStyle(11px, hsl(271, 15%, 43%), 500);
+          box-shadow: 2px 4px 5px rgba($color: black, $alpha: 0.1);
+        }
+
+        .right-message2 {
+          @include flexbox(row, start, 90px, 30px);
+          @include styles(10px, 10px, 3px, 10px, white, 90px, 30px);
+          padding: 0 8px;
+          @include textStyle(11px, hsl(271, 15%, 43%), 500);
+          box-shadow: 2px 4px 5px rgba($color: black, $alpha: 0.1);
+        }
+      }
+      .left-message2 {
+        @include flexbox(row, start, 145px, 50px);
+        @include styles(12px, 12px, 12px, 5px, hsla(276, 88%, 84%, 0.288), 145px, 50px);
+        padding: 0 15px 0 10px;
+        @include textStyle(11px, hsl(276, 55%, 52%), 500);
+        margin-top: 20px;
+      }
+
+      .payment {
+        @include flexbox(row, start, 190px, 40px);
+        @include styles(12px, 12px, 12px, 5px, none, 190px, 40px);
+        background: linear-gradient(90deg, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+        position: relative;
+
+        .span1 {
+          @include textStyle(11px, white, 500);
+          margin-left: 30px;
+        }
+
+        .span2 {
+          @include textStyle(15px, white, 700);
+          margin-left: 40px;
+        }
+
+        .span3 {
+          @include textStyle(15px, white, 700);
+          margin-left: 56px;
+        }
+
+      }
+
+      .payment::before {
+        content: '';
+        position: absolute;
+        top: 35%;
+        left: 10px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid white;
+        border-radius: 50%;
+        background: transparent;
+      }
+    }
+
+    .input-button {
+      @include flexbox(row, center, 100%, 30px);
+      position: relative;
+      margin-bottom: 20px;
+
+      input {
+        width: 65%;
+        padding: 5px 50px 5px 20px;
+        @include flexbox(row, start, 65%, 100%);
+        border: none;
+        outline: none;
+        border-radius: 25px;
+      }
+
+      input::placeholder {
+        @include textStyle(12px, lightgrey, 400);
+      }
+
+      .right-arrow {
+        position: absolute;
+        bottom: 10%;
+        right: 17px;
+        @include flexbox(row, center, 25px, 25px);
+        border-radius: 50%;
+        background: hsl(271, 36%, 24%);
+        border: none;
+      }
+
+      .right-arrow::before {
+        content: '';
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        padding: 3px;
+        transform: rotate(315deg);
+        margin-right: 3px;
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,115 @@
+@mixin flexbox($direction, $content, $width, $height) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: $content;
+  width: $width;
+  height: $height;
+}
+
+@mixin styles($TL, $TR, $BL, $BR, $color, $mW, $mH) {
+  border-radius: $TL $TR $BL $BR;
+  background-color: $color;
+  min-width: $mW;
+  min-height: $mH;
+}
+
+@mixin textStyle($size, $textColor, $weight) {
+  font-size: $size;
+  color: $textColor;
+  font-weight: $weight;
+}
+
+
+.background-shape {
+  position: absolute;
+  z-index: -1;
+  width: 640px;
+  height: 860px;
+  background: linear-gradient(30deg, hsl(264, 100%, 61%) 40%, hsl(293, 100%, 63%));
+  border-bottom-left-radius: 350px;
+  border-bottom-right-radius: 350px;
+  left: -60px;
+}
+
+.background-shape2 {
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(30deg, hsl(264, 100%, 61%) 40%, hsl(293, 100%, 63%));
+  border-top-left-radius: 350px;
+  border-top-right-radius: 350px;
+  right: -150px;
+  top: 150px;
+  width: 710px;
+  height: 900px;
+  opacity: 0.05;
+  overflow: hidden;
+}
+
+.main-flex .main-descr {
+  @include flexbox(column, start, 430px, 400px);
+  align-items: flex-start;
+  margin-left: 200px;
+  margin-top: 150px;
+  min-width: 430px;
+
+  .title {
+    @include textStyle(35px, hsl(271, 36%, 24%), 700);
+    margin-bottom: 0;
+  }
+
+  .descr {
+    @include textStyle(16px, hsl(270, 7%, 64%), 400);
+    line-height: 1.6em;
+    margin-top: 30px;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  body {
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+
+  .main-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 400px;
+    min-width: 400px;
+
+    .main-descr {
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      min-width: 300px;
+      margin-left: 40%;
+      margin-top: 0;
+
+      .title,
+      .descr {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .background-shape {
+    left: -350px;
+    top: -100px;
+  }
+
+  .background-shape2 {
+    right: -600px;
+    top: 400px;
+    opacity: 0.1;
+  }
+}
